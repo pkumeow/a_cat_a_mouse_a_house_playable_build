@@ -1,0 +1,46 @@
+a-cat-a-mouse-a-house/[Ll]ibrary/
+a-cat-a-mouse-a-house/[Tt]emp/
+a-cat-a-mouse-a-house/[Oo]bj/
+a-cat-a-mouse-a-house/[Bb]uild/
+a-cat-a-mouse-a-house/[Bb]uilds/
+a-cat-a-mouse-a-house/[Ll]ogs/
+
+# Memory dumps
+*.stackdump
+
+# Visual Studio / Rider generated files
+.vs/
+.idea/
+ExportedObj/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userosscache
+*.sln.docstates
+*.sln.iml
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V10
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Unity Package Manager cache
+/[Pp]ackages/*
+!/[Pp]ackages/manifest.json
+!/[Pp]ackages/packages-lock.json
+
+# User settings (keeps your layout from overriding teammates)
+/[Uu]ser[Ss]ettings/
+a-cat-a-mouse-a-house/.vsconfig
+a-cat-a-mouse-a-house/Assets/TutorialInfo/*.wlt
+a-cat-a-mouse-a-house/UserSettings/Layouts/*.dwlt
+a-cat-a-mouse-a-house/*.slnx
