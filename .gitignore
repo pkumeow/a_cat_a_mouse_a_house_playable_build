@@ -1,9 +1,9 @@
-a-cat-a-mouse-a-house/[Ll]ibrary/
-a-cat-a-mouse-a-house/[Tt]emp/
-a-cat-a-mouse-a-house/[Oo]bj/
-a-cat-a-mouse-a-house/[Bb]uild/
-a-cat-a-mouse-a-house/[Bb]uilds/
-a-cat-a-mouse-a-house/[Ll]ogs/
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
 
 # Memory dumps
 *.stackdump
@@ -40,7 +40,7 @@ Thumbs.db
 
 # User settings (keeps your layout from overriding teammates)
 /[Uu]ser[Ss]ettings/
-a-cat-a-mouse-a-house/.vsconfig
-a-cat-a-mouse-a-house/Assets/TutorialInfo/*.wlt
-a-cat-a-mouse-a-house/UserSettings/Layouts/*.dwlt
-a-cat-a-mouse-a-house/*.slnx
+.vsconfig
+Assets/TutorialInfo/*.wlt
+UserSettings/Layouts/*.dwlt
+*.slnx
