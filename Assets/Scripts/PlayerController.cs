@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isMouseTrapped) return;
         Vector3 f = Camera.main.transform.forward; f.y = 0; f.Normalize();
 
         Vector3 move = f * verticalInput * speed * Time.fixedDeltaTime;
@@ -53,6 +54,8 @@ public class Player : MonoBehaviour
     public void FreezeMovement()
     {
         isMouseTrapped = true;
+        horizontalInput = 0f;
+        verticalInput = 0f;
     }
     public void UnfreezeMovement()
     {
