@@ -3,13 +3,13 @@ using Unity.Cinemachine;
 
 public class PlayerSwitcher : MonoBehaviour
 {
-    public MonoBehaviour player1Controller;  // Assign Player 1's script
-    public MonoBehaviour player2Controller;  // Assign Player 2's script
+    public MonoBehaviour player1Controller;
+    public MonoBehaviour player2Controller;
 
-    public CinemachineCamera catCameraObject; // Assign the cat camera in the Inspector
-    public CinemachineCamera mouseCameraObject; // Assign the mouse camera in the Inspector
+    public CinemachineCamera catCameraObject;
+    public CinemachineCamera mouseCameraObject;
 
-
+    public Carrier catCarrier; // ✅ 拖 Cat 身上的 Carrier
 
     private bool isPlayer1Active = true;
 
@@ -23,6 +23,11 @@ public class PlayerSwitcher : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             isPlayer1Active = !isPlayer1Active;
+
+            // ✅ 切到鼠（player2）时：立刻放下
+            if (!isPlayer1Active && catCarrier != null)
+                catCarrier.Drop();
+
             UpdatePlayerControl();
         }
     }
@@ -37,31 +42,14 @@ public class PlayerSwitcher : MonoBehaviour
         player1Controller.enabled = isPlayer1Active;
         player2Controller.enabled = !isPlayer1Active;
 
-        // Switch camera priorities
         if (catCameraObject != null && mouseCameraObject != null)
         {
-            Debug.Log("Camera objects found, attempting to switch...");
-            
-            // Directly set priority using CinemachineCamera type
-            if (isPlayer1Active)
-            {
-                catCameraObject.Priority = 10;
-                mouseCameraObject.Priority = 0;
-                Debug.Log("Cat camera priority set to: 10, Mouse camera priority set to: 0");
-            }
-            else
-            {
-                catCameraObject.Priority = 0;
-                mouseCameraObject.Priority = 10;
-                Debug.Log("Cat camera priority set to: 0, Mouse camera priority set to: 10");
-            }
-        }
-        else
-        {
-            Debug.LogWarning($"Camera objects missing! Cat: {catCameraObject != null}, Mouse: {mouseCameraObject != null}");
+            catCameraObject.Priority = isPlayer1Active ? 10 : 0;
+            mouseCameraObject.Priority = isPlayer1Active ? 0 : 10;
         }
 
-        string activePlayer = isPlayer1Active ? "Player 1" : "Player 2";
-        Debug.Log($"Now controlling: {activePlayer}");
+        // ✅ 只有控制猫时才允许自动捡鼠
+        if (catCarrier != null)
+            catCarrier.allowAutoPickup = isPlayer1Active;
     }
 }
