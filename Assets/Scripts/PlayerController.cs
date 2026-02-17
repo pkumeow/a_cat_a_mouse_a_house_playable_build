@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 20.0f;
+    public float speed = 2.0f;
+    public float turnSpeed = 200.0f;
     private float horizontalInput;
     private float verticalInput;
 
     void Start()
     {
-        // Initialization if needed
+
     }
 
     void Update()
@@ -16,10 +17,6 @@ public class Player : MonoBehaviour
         // 1. Get input from WASD or Arrow Keys
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
-
-        // 2. Handle Rotation FIRST (Make the player face the cursor)
-        // We do this first so the movement knows which way is "forward"
-        // LookAtCursor();
 
         // Get Camera directions:
         Vector3 cameraForward = Camera.main.transform.forward;
@@ -31,43 +28,12 @@ public class Player : MonoBehaviour
 
         // 3. Handle Movement based on where the player is looking
         // verticalInput (W/S) moves the player along their local forward axis
+        transform.position += cameraForward * verticalInput * Time.deltaTime * speed;
+
         // horizontalInput (A/D) moves the player along their local right axis (strafing)
-        // Vector3 moveDirection = (transform.forward * verticalInput) + (transform.right * horizontalInput);
-        // Vector3 moveDirection = new Vector3(horizontalInput, 0, verticalInput).normalized;
-        Vector3 moveDirection = (cameraForward * verticalInput) + (cameraRight * horizontalInput);
-
-        if (moveDirection.magnitude > 0.1f)
-        {
-            
-            // Apply movement using the direction relative to the player's facing
-            transform.position += moveDirection * Time.deltaTime * speed;
-
-            // rotate to the direction of movement
-            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 1);
-        }
+        transform.Rotate(0, horizontalInput * turnSpeed * Time.deltaTime, 0); // pitch, yaw (we are rotating on yaw), roll
 
     }
-
-    // This is the original code
-    // void LookAtCursor()
-    // {
-    //     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    //     Plane groundPlane = new Plane(Vector3.up, transform.position);
-    //     float rayDistance;
-
-    //     if (groundPlane.Raycast(ray, out rayDistance))
-    //     {
-    //         Vector3 lookPoint = ray.GetPoint(rayDistance);
-    //         Vector3 direction = lookPoint - transform.position;
-    //         direction.y = 0;
-
-    //         if (direction != Vector3.zero)
-    //         {
-    //             transform.rotation = Quaternion.LookRotation(direction);
-    //         }
-    //     }
-    // }
 
 
 }
