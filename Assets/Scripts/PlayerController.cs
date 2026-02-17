@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
     public float speed = 20.0f;
     private float horizontalInput;
     private float verticalInput;
+    private bool isMouseTrapped = false;
 
     void Start()
     {
@@ -13,6 +14,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        // chech if the mouse is trapped
+        if (isMouseTrapped) {
+            return;
+        }
         // 1. Get input from WASD or Arrow Keys
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
@@ -70,4 +75,13 @@ public class Player : MonoBehaviour
     // }
 
 
+    // freeze the player movement
+    public void FreezeMovement()
+    {
+        isMouseTrapped = true;
+    }
+    public void UnfreezeMovement()
+    {
+        isMouseTrapped = false;
+    }
 }
