@@ -2705,7 +2705,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89dcf6402e43e44c7bd48459bce572fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  speed: 1
+  speed: 2
+  turnSpeed: 200
+  jumpForce: 3
 --- !u!54 &425443230
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5656,7 +5658,7 @@ GameObject:
   - component: {fileID: 822923842}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8388,7 +8390,7 @@ GameObject:
   - component: {fileID: 1471137341}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12678,6 +12680,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cat
       objectReference: {fileID: 0}
+    - target: {fileID: 914152378136020341, guid: 7aafa16f0a5d3410db9769b572993eb1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1206991795924770014, guid: 7aafa16f0a5d3410db9769b572993eb1,
         type: 3}
       propertyPath: m_Mesh
@@ -12696,7 +12703,7 @@ PrefabInstance:
     - target: {fileID: 1357953008516898756, guid: 7aafa16f0a5d3410db9769b572993eb1,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 3694
+      value: 3706
       objectReference: {fileID: 0}
     - target: {fileID: 1591508944354164980, guid: 7aafa16f0a5d3410db9769b572993eb1,
         type: 3}
@@ -12836,7 +12843,7 @@ PrefabInstance:
     - target: {fileID: 7980473198181251228, guid: 7aafa16f0a5d3410db9769b572993eb1,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 3730
+      value: 3742
       objectReference: {fileID: 0}
     - target: {fileID: 8276037581268679492, guid: 7aafa16f0a5d3410db9769b572993eb1,
         type: 3}
@@ -12861,12 +12868,22 @@ PrefabInstance:
     - target: {fileID: 8300610829199253029, guid: 7aafa16f0a5d3410db9769b572993eb1,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 3601
+      value: 3613
       objectReference: {fileID: 0}
     - target: {fileID: 8908273497968489056, guid: 7aafa16f0a5d3410db9769b572993eb1,
         type: 3}
       propertyPath: speed
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908273497968489056, guid: 7aafa16f0a5d3410db9769b572993eb1,
+        type: 3}
+      propertyPath: jumpForce
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908273497968489056, guid: 7aafa16f0a5d3410db9769b572993eb1,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
