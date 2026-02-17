@@ -4,12 +4,16 @@ public class Player : MonoBehaviour
 {
     public float speed = 2.0f;
     public float turnSpeed = 200.0f;
+    public float jumpForce = 1.0f;
     private float horizontalInput;
     private float verticalInput;
+    private Rigidbody rb;
+    private bool isGrounded = true;
 
     void Start()
     {
-
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true; // Prevent physics from tipping the player over
     }
 
     void Update()
@@ -33,7 +37,19 @@ public class Player : MonoBehaviour
         // horizontalInput (A/D) moves the player along their local right axis (strafing)
         transform.Rotate(0, horizontalInput * turnSpeed * Time.deltaTime, 0); // pitch, yaw (we are rotating on yaw), roll
 
+        // Jump
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+        }
     }
 
-
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Player"))
+        {
+            isGrounded = true;
+        }
+    }
 }
