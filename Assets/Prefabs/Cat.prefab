@@ -53,6 +53,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   speed: 20
+  turnSpeed: 200
+  jumpForce: 4
 --- !u!1 &1746356406486873875
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +158,6 @@ GameObject:
   - component: {fileID: 4250944935827040827}
   - component: {fileID: 8499673475203104979}
   - component: {fileID: 6728985825670096849}
-  - component: {fileID: 4588506726317290928}
   m_Layer: 0
   m_Name: Arch (2)
   m_TagString: Untagged
@@ -962,28 +963,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1954668154571264137}
   m_Mesh: {fileID: 0}
---- !u!64 &4588506726317290928
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1954668154571264137}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &2016366391076376117
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,7 +976,6 @@ GameObject:
   - component: {fileID: 371502709264790320}
   - component: {fileID: 454354022745403998}
   - component: {fileID: 3144600815169679536}
-  - component: {fileID: 2534057750589722272}
   m_Layer: 0
   m_Name: Arch
   m_TagString: Untagged
@@ -1803,28 +1781,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016366391076376117}
   m_Mesh: {fileID: 0}
---- !u!64 &2534057750589722272
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016366391076376117}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &2182580599370476472
 GameObject:
   m_ObjectHideFlags: 0
@@ -2139,7 +2095,6 @@ GameObject:
   - component: {fileID: 928622532164944326}
   - component: {fileID: 3588522515887225717}
   - component: {fileID: 3895085118499437553}
-  - component: {fileID: 7852808537794650235}
   m_Layer: 0
   m_Name: Arch (1)
   m_TagString: Untagged
@@ -2944,26 +2899,4 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8934988903721289846}
-  m_Mesh: {fileID: 0}
---- !u!64 &7852808537794650235
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8934988903721289846}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
   m_Mesh: {fileID: 0}
