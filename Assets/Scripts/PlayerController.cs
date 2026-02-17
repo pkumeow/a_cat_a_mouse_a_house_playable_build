@@ -4,7 +4,7 @@ public class Player : MonoBehaviour
 {
     public float speed = 2f;
     public float turnSpeed = 200f;
-    public float jumpForce = 2000f;
+    public float jumpForce = 4f;
 
     Rigidbody rb;
     bool isGrounded = true;

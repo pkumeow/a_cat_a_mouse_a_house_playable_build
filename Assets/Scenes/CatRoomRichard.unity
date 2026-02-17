@@ -2173,7 +2173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   speed: 2
   turnSpeed: 200
-  jumpForce: 3
+  jumpForce: 4
 --- !u!54 &425443230
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3277,7 +3277,7 @@ Transform:
   m_GameObject: {fileID: 691714403}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.8776, y: 0.629, z: -7.8213}
+  m_LocalPosition: {x: -6.8776, y: 0.974, z: -7.8213}
   m_LocalScale: {x: 1.5245768, y: -0.20379432, z: -4.689509}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9041,7 +9041,7 @@ PrefabInstance:
     - target: {fileID: 8908273497968489056, guid: 7aafa16f0a5d3410db9769b572993eb1,
         type: 3}
       propertyPath: jumpForce
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8908273497968489056, guid: 7aafa16f0a5d3410db9769b572993eb1,
         type: 3}
