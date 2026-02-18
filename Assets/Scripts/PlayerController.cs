@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     Rigidbody rb;
     bool isGrounded = true;
     float horizontalInput, verticalInput;
+    private bool isMouseTrapped = false;
 
     void Start()
     {
@@ -18,6 +19,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        // chech if the mouse is trapped
+        if (isMouseTrapped) {
+            return;
+        }
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
 
@@ -30,6 +35,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isMouseTrapped) return;
         Vector3 f = Camera.main.transform.forward; f.y = 0; f.Normalize();
 
         Vector3 move = f * verticalInput * speed * Time.fixedDeltaTime;
@@ -43,5 +49,16 @@ public class Player : MonoBehaviour
     {
         if (c.gameObject.CompareTag("Ground") || c.gameObject.CompareTag("Player"))
             isGrounded = true;
+    }
+    // freeze the player movement
+    public void FreezeMovement()
+    {
+        isMouseTrapped = true;
+        horizontalInput = 0f;
+        verticalInput = 0f;
+    }
+    public void UnfreezeMovement()
+    {
+        isMouseTrapped = false;
     }
 }
