@@ -4,7 +4,7 @@ public class GateTrap : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject gate;
-    public float dropSpeed = 1f;
+    public float dropSpeed = 5f;
     public float minY = 0.25f;
 
     public string trapCharacter = "Cat";

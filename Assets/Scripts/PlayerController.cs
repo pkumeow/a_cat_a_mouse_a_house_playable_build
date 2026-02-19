@@ -39,7 +39,8 @@ public class Player : MonoBehaviour
         Vector3 f = Camera.main.transform.forward; f.y = 0; f.Normalize();
 
         Vector3 move = f * verticalInput * speed * Time.fixedDeltaTime;
-        rb.MovePosition(rb.position + move);
+        // rb.MovePosition(rb.position + move); // change this to use linear velocity so that the collision works
+        rb.linearVelocity = new Vector3(move.x / Time.fixedDeltaTime, rb.linearVelocity.y, move.z / Time.fixedDeltaTime);
 
         float yaw = horizontalInput * turnSpeed * Time.fixedDeltaTime;
         rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, yaw, 0f));
@@ -56,9 +57,13 @@ public class Player : MonoBehaviour
         isMouseTrapped = true;
         horizontalInput = 0f;
         verticalInput = 0f;
+        // make the player immovable by setting the mass to a very high value
+        rb.mass = 10000f; 
     }
     public void UnfreezeMovement()
     {
         isMouseTrapped = false;
+        rb.isKinematic = false;
+        rb.mass = 1f;
     }
 }
